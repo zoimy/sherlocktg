@@ -49,7 +49,6 @@ async def search_user(message: Message):
     except Exception as e:
         await message.answer(f"Error: {str(e)}")
 
-# Обработчик нажатий на кнопки
 @dp.callback_query()
 async def handle_callback(call: CallbackQuery):
     if call.data == "search_again":
@@ -59,10 +58,8 @@ async def handle_callback(call: CallbackQuery):
         await call.answer("Goodbye!")
         await call.message.answer("Goodbye! Have a great day.")
 
-# Основная асинхронная функция
 async def main():
     await dp.start_polling(bot)
 
-# Запуск бота
 if __name__ == "__main__":
     asyncio.run(main())
